@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:todoey_flutter/widgets/tasks_lists.dart';
+
 class TasksScreen extends StatelessWidget {
   TasksScreen({super.key});
 
@@ -56,6 +58,7 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -64,23 +67,7 @@ class TasksScreen extends StatelessWidget {
                   bottomLeft: Radius.circular(150),
                 ),
               ),
-              child: ListView(
-                padding: EdgeInsets.only(top: 100),
-                children: [
-                  ListTile(
-                  title: Text('Tarea 1'),
-                    trailing: Checkbox(value: false, onChanged: null),
-                  ),
-                  ListTile(
-                    title: Text('Tarea 2'),
-                    trailing: Checkbox(value: false, onChanged: null),
-                  ),
-                  ListTile(
-                    title: Text('Tarea 3'),
-                    trailing: Checkbox(value: false, onChanged: null),
-                  ),
-                ],
-              ),
+              child: TasksList(),
             ),
           ),
         ],
@@ -88,3 +75,7 @@ class TasksScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
