@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:todoey_flutter/widgets/tasks_lists.dart';
+import 'package:todoey_flutter/screens/add_task_screen.dart';
 
 class TasksScreen extends StatelessWidget {
-  TasksScreen({super.key});
-
-  final List<String> entries = <String>[
-    "Estudiar Flutter",
-    "Repasar Dart",
-    "Despejar la mente"
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +11,9 @@ class TasksScreen extends StatelessWidget {
       backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlue,
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(context: context, builder: ( context) =>  AddTaskScreen());
+        },
         child: Icon(Icons.add),
       ),
       body: Column(
@@ -42,7 +38,7 @@ class TasksScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "TODoeY",
+                  "Por hacer:",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
@@ -63,7 +59,7 @@ class TasksScreen extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
-                  topRight: Radius.circular(150),
+                  topRight: Radius.circular(110),
                   bottomLeft: Radius.circular(150),
                 ),
               ),
