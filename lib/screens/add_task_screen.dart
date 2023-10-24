@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AddTaskScreen extends StatelessWidget {
+
+  final Function addTaskCallback;
+
+  AddTaskScreen(this.addTaskCallback);
   @override
   Widget build(BuildContext context) {
 
@@ -34,7 +38,8 @@ class AddTaskScreen extends StatelessWidget {
             ),
             TextButton(onPressed: () {
               //Añadir la tarea a la lista.
-              print(newTaskTitle);
+              //print(newTaskTitle);
+              addTaskCallback(newTaskTitle);
             },
               style: ButtonStyle(
                 foregroundColor: MaterialStateProperty.all(Colors.white),
