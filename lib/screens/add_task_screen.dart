@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 class AddTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    String newTaskTitle="";
+
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -20,13 +23,18 @@ class AddTaskScreen extends StatelessWidget {
             Text('Añadir tarea',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 30,
-            color: Colors.lightBlueAccent,),),
+            color: Colors.lightBlueAccent,),
+            ),
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (newText) {
+                newTaskTitle= newText;
+              },
             ),
             TextButton(onPressed: () {
               //Añadir la tarea a la lista.
+              print(newTaskTitle);
             },
               style: ButtonStyle(
                 foregroundColor: MaterialStateProperty.all(Colors.white),
