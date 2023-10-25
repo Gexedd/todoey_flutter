@@ -6,7 +6,6 @@ import 'package:todoey_flutter/screens/add_task_screen.dart';
 import 'package:todoey_flutter/models/task.dart';
 
 class TasksScreen extends StatefulWidget {
-
   @override
   State<TasksScreen> createState() => _TasksScreenState();
 }
@@ -25,14 +24,16 @@ class _TasksScreenState extends State<TasksScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlue,
         onPressed: () {
-          showModalBottomSheet(context: context, builder: ( context) =>
-              AddTaskScreen((newTaskTitle){
-                  print(newTaskTitle);
-                  setState(() {
-                    tasks.add(Task(name: newTaskTitle));
-                  });
-
-              }));
+          showModalBottomSheet(
+              context: context,
+              builder: (context) => AddTaskScreen((newTaskTitle) {
+                    print(
+                        newTaskTitle); //Esto es sólo a modo de comprobación en la consola.
+                    setState(() {
+                      tasks.add(Task(name: newTaskTitle));
+                    });
+                    Navigator.pop(context);
+                  }));
         },
         child: Icon(Icons.add),
       ),
@@ -66,7 +67,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '12 Tareas',
+                  tasks.length > 1 ? 'Quedan ${tasks.length.toString()} tareas pendientes' : 'Queda ${tasks.length.toString()} tarea solamente' ,
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ],
@@ -91,7 +92,3 @@ class _TasksScreenState extends State<TasksScreen> {
     );
   }
 }
-
-
-
-
