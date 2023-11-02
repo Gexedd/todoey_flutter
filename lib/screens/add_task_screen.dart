@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todoey_flutter/models/task.dart';
+import 'package:todoey_flutter/models/task_data.dart';
+import 'package:provider/provider.dart';
 
 class AddTaskScreen extends StatelessWidget {
   final Function addTaskCallback;
@@ -29,6 +32,7 @@ class AddTaskScreen extends StatelessWidget {
             color: Colors.lightBlueAccent,),
             ),
             TextField(
+
               autofocus: true,
               textAlign: TextAlign.center,
               onChanged: (newText) {
@@ -37,8 +41,8 @@ class AddTaskScreen extends StatelessWidget {
             ),
             TextButton(onPressed: () {
               //Añadir la tarea a la lista.
-              //print(newTaskTitle);
-              addTaskCallback(newTaskTitle);
+            Provider.of<TaskData>(context, listen: false).addTask(newTaskTitle);
+            Navigator.pop(context);
             },
               style: ButtonStyle(
                 foregroundColor: MaterialStateProperty.all(Colors.white),

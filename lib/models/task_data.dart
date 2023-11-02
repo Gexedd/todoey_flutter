@@ -10,7 +10,11 @@ class TaskData extends ChangeNotifier{
 
   int get conteoDeTareas {
     return tasks.length;
-
   }
 
+  //Crear un método para añadir una nueva tarea mediante provider.
+    void addTask (String newTaskTitle ) {
+    tasks.add(Task(name: newTaskTitle));
+    notifyListeners();
+  }
 }
