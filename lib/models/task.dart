@@ -8,4 +8,5 @@ class Task {
     isDone = !isDone;
     print("La tarea $name se ha marcado como ${isDone ? 'completado' : 'pendiente'}");
   }
+
 }
